@@ -1,0 +1,1 @@
+Get-NetTCPConnection | ConvertTo-JSON

@@ -1,40 +1,14 @@
-# Welcome to Remix!
+# Lihat Host
 
-- 📖 [Remix docs](https://remix.run/docs)
+This tool is designed to retrieve detailed information about various devices on Windows OS. Whether you're a system administrator, developer, or power user, this tool provides a straightforward way to gather essential data from your Windows environment. It offers insights into network configurations, hardware specifications, and more, helping you better manage and understand your devices.
 
-## Development
+# License
 
-Run the dev server:
+This project is licensed under the following licenses:
 
-```shellscript
-npm run dev
-```
+1. Apache License, Version 2.0 (LICENSE-APACHE)
+2. Commercial License (LICENSE-COMMERCIAL)
 
-## Deployment
+This software is free for use by individuals and small organizations with fewer than 50 employees and/or less than $1 million in annual revenue.
 
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+For larger organizations, a commercial license must be obtained. Please contact https://github.com/shirou to obtain a commercial license.

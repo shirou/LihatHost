@@ -1,0 +1,24 @@
+{
+	"common": {
+		"Loading...": "読込中...",
+		"Host": "ホスト",
+		"Network": "ネットワーク",
+		"Interface": "インターフェース",
+		"IPAddress": "IPアドレス",
+		"Scan": "スキャン",
+		"Disk": "ディスク",
+		"Power": "電源"
+	},
+	"network_interface": {
+		"Host Information": "ホスト情報",
+		"Network Interface": "ネットワークインターフェース",
+		"Interface Description": "インターフェースの説明",
+		"Vendor": "ベンダー"
+	},
+	"host_system": {
+		"Host Information": "ホスト情報",
+		"System": "システム",
+		"OK": "OS",
+		"Processor": "プロセッサ"
+	}
+}
