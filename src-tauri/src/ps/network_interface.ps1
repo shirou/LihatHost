@@ -4,9 +4,9 @@ $intefaceIndex = $1
 
 # Get network adapters information
 if ($intefaceIndex) {
-    $networkAdapters = Get-NetAdapter -InterfaceIndex $intefaceIndex
+    $networkAdapters = Get-NetAdapter -IncludeHidden -InterfaceIndex $intefaceIndex
 } else {
-    $networkAdapters = Get-NetAdapter
+    $networkAdapters = Get-NetAdapter -IncludeHidden
 }
 
 # Convert the data to JSON format with EnumStringValues

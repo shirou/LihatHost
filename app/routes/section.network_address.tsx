@@ -6,6 +6,7 @@ import {
 	useRouteError,
 	Await,
 	json,
+	defer,
 } from "@remix-run/react";
 
 import { executeCommand } from "~/lib/invoke.client";
@@ -15,8 +16,16 @@ import IPAddressDetail from "~/components/IPAddressDetail";
 import { networkIPAddressesSchema } from "~/schemas/network";
 
 export async function clientLoader() {
-	const listPromise = executeCommand("network_ip");
-	return listPromise;
+	const listPromise = executeCommand("network_ip")
+		.then((data) => {
+			const r = networkIPAddressesSchema.safeParse(JSON.parse(data));
+			return {raw: data, data:r.data};
+		})
+		.catch((e) => {
+			console.log(e);
+			throw json({ message: "error" }, { status: 401 });
+		});
+	return defer({ listPromise });
 }
 
 export default function NetworkAddress() {
@@ -33,21 +42,13 @@ export default function NetworkAddress() {
 
 	return (
 		<PageContainer scrollable={false}>
-			<div className="flex flex-col flex-grow space-y-4 ">
+			<div className="flex flex-col flex-grow space-y-4">
 				<h2 className="text-2xl font-bold tracking-tight">{t("IP Address")}</h2>
 				<Suspense fallback={<Loading />}>
-					<Await resolve={ipAddress}>
-						{(resolvedValue) => {
-							console.log(resolvedValue);
-							const r = networkIPAddressesSchema.safeParse(
-								JSON.parse(resolvedValue),
-							);
-							if (r.error) {
-								console.log(r.error.issues);
-								throw json({ message: "error" }, { status: 401 });
-							}
-
-							const calc = r.data.map((ip) => {
+					<Await resolve={ipAddress.listPromise}>
+						{(r) => {
+							console.log(r.raw)
+							const calc = r.data?.map((ip) => {
 								return {
 									...ip,
 									Address:

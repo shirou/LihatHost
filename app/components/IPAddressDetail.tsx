@@ -73,12 +73,13 @@ export default function IPAddressDetail(props: IPAddressDetailProps) {
 				);
 			},
 		},
+		{ accessorKey: "PrefixOrigin", header: t("PrefixOrigin") },
 		{ accessorKey: "Type", header: t("Type") },
 		{ accessorKey: "AddressState", header: t("AddressState") },
 	];
 
 	return (
-		<div className="overflow-auto">
+		<div className="overflow-auto max-w-svh">
 			<DataTable columns={columns} data={IPAddress} />
 		</div>
 	);

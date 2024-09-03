@@ -19,6 +19,7 @@ export const networkIPAddressSchema = z.object({
 	IPv6Address: z.string(),
 	AddressFamily: z.string(),
 	Type: z.string(),
+	PrefixOrigin: z.string(),
 	AddressState: z.string(),
 });
 export const networkIPAddressesSchema = networkIPAddressSchema.array();

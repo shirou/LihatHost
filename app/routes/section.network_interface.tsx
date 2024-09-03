@@ -26,7 +26,7 @@ export async function clientLoader() {
 		const r = networkInterfacesSchema.safeParse(JSON.parse(data));
 		return r.data;
 	});
-	return defer({listPromise});
+	return defer({ listPromise });
 }
 
 export default function NetworkInterface() {
